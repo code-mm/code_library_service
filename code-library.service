@@ -1,0 +1,13 @@
+[Unit]
+Description=CODE library service
+After=syslog.target network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/code_library_service
+ExecStart=/opt/code_library_service/bin/python3 /opt/code_library_service/book-service.py
+Restart=on-abort
+EnvironmentFile=/opt/code_library_service/db.env
+
+[Install]
+WantedBy=multi-user.target
